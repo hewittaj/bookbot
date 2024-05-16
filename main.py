@@ -23,7 +23,9 @@ def count_letters(text):
 def generate_report(word_count, letter_count):
     print("--- Begin report of books/frankenstein.txt---")
     print(f"{word_count} words found in the document")
-    for letter, count in letter_count.items():
+    
+    letter_count = sorted(letter_count.items(), key=lambda letter: letter[1], reverse=True)
+    for letter, count in letter_count:
         if not letter.isalpha():
             continue
         print(f"The '{letter}' character was found {count} times")
